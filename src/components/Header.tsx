@@ -18,8 +18,6 @@ import * as utils from "../helpers/utils";
 
 // These are the wallet SDK helpers
 import * as walletMetamask from "../helpers/wallet-metamask";
-import * as walletDefiwallet from "../helpers/wallet-defiwallet";
-import * as walletConnect from "../helpers/wallet-connect";
 
 import {
   updateQueryResultsAction,
@@ -41,7 +39,8 @@ const StyledMenu = styled((props: MenuProps) => (
     }}
     {...props}
   />
-))(({ theme }) => ({
+))
+(({ theme }) => ({
   "& .MuiPaper-root": {
     borderRadius: 6,
     marginTop: theme.spacing(1),
@@ -111,14 +110,7 @@ const Header: React.FC<IProps> = () => {
       case "metamask-injected":
         newWallet = await walletMetamask.connect();
         break;
-      // Crypto.com DeFi Wallet Extension (browser)
-      case "defiwallet":
-        newWallet = await walletDefiwallet.connect();
-        break;
-      // Crypto.com DeFi Wallet mobile app (via Wallet Connect)
-      case "wallet-connect":
-        newWallet = await walletConnect.connect();
-        break;
+
       default:
         newWallet = await walletMetamask.connect();
     }
@@ -212,22 +204,6 @@ const Header: React.FC<IProps> = () => {
             >
               MetaMask (browser / mobile)
             </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleClickConnect("defiwallet");
-              }}
-              disableRipple
-            >
-              Crypto.com Wallet Extension (browser)
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleClickConnect("wallet-connect");
-              }}
-              disableRipple
-            >
-              Wallet Connect (browser / mobile)
-            </MenuItem>
           </StyledMenu>
         </div>
       );
@@ -248,7 +224,7 @@ const Header: React.FC<IProps> = () => {
               <RocketIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              My Dapp
+              Cronos NEWC Minting
             </Typography>
             {renderLoginButton()}
           </Toolbar>

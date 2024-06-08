@@ -104,7 +104,7 @@ const Welcome: React.FC<IProps> = () => {
       return (
         <div>
           <ActionButton variant="contained" onClick={sendTransaction}>
-            Mint 1 CTOK for myself
+            Mint 1 NEWC for myself
           </ActionButton>
           <ActionButton variant="contained" onClick={refreshQueryResults}>
             Refresh Balance
@@ -174,7 +174,7 @@ const Welcome: React.FC<IProps> = () => {
             User's CRO balance: {state.queryResults.croBalance}
           </Typography>
           <Typography variant="body1" component="div" gutterBottom>
-            User's CTOK token balance: {state.queryResults.erc20Balance}
+            User's NEWC token balance: {state.queryResults.erc20Balance}
           </Typography>
           {renderLastTransaction()}
           {renderButtons()}

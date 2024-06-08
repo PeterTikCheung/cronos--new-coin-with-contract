@@ -34,8 +34,8 @@ export const getCroBalance = async (
   );
 };
 
-// Get the CTOK token balance of address
-// The CTOK is a ERC20 smart contract, its address is retrieved from
+// Get the NEWC token balance of address
+// The NEWC is a ERC20 smart contract, its address is retrieved from
 // the config/config.ts file
 // and the ABI from config/contracts/MyERC20MintableByAnyone.json
 export const getBalance = async (

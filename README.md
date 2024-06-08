@@ -1,7 +1,5 @@
 # cronos-dapp-basic
 
-Basic Dapp showing how a React Dapp can connect to Cronos using MetaMask and Crypto.com Defi Wallet
-
 For testing, you need to install:
 
 - [Crypto.com DeFi Wallet](https://crypto.com/defi-wallet) on your mobile device
