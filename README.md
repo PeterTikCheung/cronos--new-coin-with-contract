@@ -1,4 +1,4 @@
-# cronos-dapp-basic
+# cronos-new-coin-minting
 
 For testing, you need to install:
 
