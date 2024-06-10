@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-verify";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -22,6 +23,18 @@ const config: HardhatUserConfig = {
     apiKey: {
       cronosTestnet: cronosApiKeyTestnet,
     },
+    customChains: [
+      {
+        network: "cronosTestnet",
+        chainId: 338,
+        urls: {
+          apiURL:
+              "https://explorer-api.cronos.org/testnet/api/v1/hardhat/contract?apikey=" +
+              cronosApiKeyTestnet,
+          browserURL: "https://explorer.cronos.org/testnet",
+      },
+      }
+    ]
   },
 };
 

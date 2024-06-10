@@ -32,10 +32,7 @@ const Welcome: React.FC<IProps> = () => {
     const erc20WriteContractInstance = await utils.getWriteContractInstance(
       state.wallet.browserWeb3Provider
     );
-    const tx = await erc20WriteContractInstance["mint"](
-      state.wallet.address,
-      "1000000000000000000"
-    );
+    const tx = await erc20WriteContractInstance.mint(state.wallet.address);
     updateRefreshingAction(dispatch, {
       status: false,
       message: "Complete",
