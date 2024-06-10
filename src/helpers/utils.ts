@@ -2,7 +2,7 @@
 import { ethers } from "ethers"; // npm install ethers
 
 import * as config from "../config/config";
-import * as ERC20Json from "../config/contracts/MyERC20MintableByAnyone.json";
+import * as ERC20Json from "../config/contracts/NEWCToken.json";
 
 export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
@@ -49,13 +49,12 @@ export const getBalance = async (
     contractAbi,
     serverWeb3Provider
   );
-  const contractResponse = await readContractInstance["balanceOf"](address);
-  // Balance is rounded at 2 decimals instead of 18, to simplify UI
-  return (
-    ethers.BigNumber.from(contractResponse)
-      .div(ethers.BigNumber.from("10000000000000000"))
-      .toNumber() / 100
-  );
+  const contractResponse = await readContractInstance.balanceOf(address);
+  const balanceBigNumber = ethers.BigNumber.from(contractResponse);
+  const divisor = ethers.BigNumber.from(10).pow(8);
+  const balance = balanceBigNumber.div(divisor).toNumber();
+  
+  return balance;
 };
 
 // Generate a ethers.Contract instance of the contract object
@@ -70,10 +69,7 @@ export const getWriteContractInstance = async (
   const readContractInstance = new ethers.Contract(
     config.configVars.erc20.address,
     contractAbi,
-    ethersProvider
+    ethersProvider.getSigner(0)
   );
-  // Add a signer to make the ethers.Contract object able
-  // to craft transactions
-  const fromSigner = ethersProvider.getSigner();
-  return readContractInstance.connect(fromSigner);
+  return readContractInstance;
 };
