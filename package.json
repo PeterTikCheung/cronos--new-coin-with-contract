@@ -18,7 +18,7 @@
     "@walletconnect/web3-provider": "^1.7.0",
     "deficonnect": "^1.1.5",
     "dotenv": "^16.4.5",
-    "ethers": "^5.5.2",
+    "ethers": "^6.12.1",
     "http-proxy-middleware": "^2.0.1",
     "path-browserify": "^1.0.1",
     "react": "^17.0.2",
@@ -45,7 +45,6 @@
     "@types/node": "^16.11.15",
     "@types/react": "^17.0.37",
     "chai": "^4.4.1",
-    "ethers": "^6.13.0",
     "hardhat": "^2.22.5",
     "hardhat-gas-reporter": "^1.0.10",
     "solidity-coverage": "^0.8.12",
@@ -57,7 +56,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "contract-deploy": "npx hardhat run --network cronosTestnet scripts/deploy.ts",
+    "prepare-hardhat": "node ./scripts/prepare-hardhat.js",
+    "hardhat-compile": "npm run prepare-hardhat"
   },
   "eslintConfig": {
     "extends": [

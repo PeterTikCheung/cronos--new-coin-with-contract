@@ -9,7 +9,7 @@ contract NEWCToken is ERC20 {
         _decimals = 8;
 
     }
-    function decimals() public view returns (uint8){
+    function decimals() public view override returns (uint8){
         return _decimals;
     }
 
